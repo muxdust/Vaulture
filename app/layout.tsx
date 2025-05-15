@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Roboto, Noto_Sans } from "next/font/google";
+import { Poppins, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/context/QueryProvider";
 import { AppUserProvider } from "@/context/AppContext";
 
-const headingFont = Roboto({
+const headingFont = Poppins({
+  weight: ["400", "500"],
   variable: "--font-heading",
   subsets: ["latin"],
 });
 
 const bodyFont = Noto_Sans({
+  weight: ["400", "500"],
   variable: "--font-body",
   subsets: ["latin"],
 });
