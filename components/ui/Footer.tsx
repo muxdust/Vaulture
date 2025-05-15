@@ -9,12 +9,13 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between items-center w-full gap-6">
           <Link href="/" className="flex items-center gap-1">
             <VaultIcon className="w-5 h-5" />
-            <span className="text-xl font-semibold font-heading text-white">
+            <span className="text-2xl font-semibold font-heading bg-gradient-to-r from-white to-orange-500 bg-clip-text text-transparent flex items-center gap-2">
               Vaulture
             </span>
           </Link>
           <div className="flex items-center gap-2 text-zinc-300/90">
-            Developed by
+            <span>Developed by</span>
+            <span>Priyanshu</span>
             <Link
               href="https://github.com/muxdust"
               target="_blank"

@@ -29,9 +29,12 @@ const Navbar = () => {
               <Link href="/contact">Contact</Link>
             </li>
           </ul>
-          <button className="hidden lg:flex px-4 py-2 rounded-xl text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200">
+          <Link
+            href="/login"
+            className="hidden lg:flex px-4 py-2 rounded-xl text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200"
+          >
             Login
-          </button>
+          </Link>
           <button className="lg:hidden block" onClick={toggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -46,9 +49,12 @@ const Navbar = () => {
                 <Link href="/contact">Contact</Link>
               </li>
             </ul>
-            <button className="px-4 py-2 rounded-xl text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200">
+            <Link
+              href="/login"
+              className="px-4 py-2 rounded-xl text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200"
+            >
               Login
-            </button>
+            </Link>
           </div>
         )}
       </div>
