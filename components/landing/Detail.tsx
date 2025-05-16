@@ -9,19 +9,19 @@ const Detail = () => {
           <h2 className="text-4xl md:text-5xl font-semibold font-heading text-zinc-200">
             Your passwords are locked down with military-grade encryption
           </h2>
-          <p className="text-md font-normal text-zinc-300/90">
+          <p className="text-md font-normal text-zinc-300/80">
             We use AES 256-bit encryption, the same standard trusted by
             governments and financial institutions worldwide. Your master
             password is known only to you, which means not even our team can
             access your data.
           </p>
           <p className="flex items-center gap-5 py-2 px-4 bg-zinc-800/80 rounded-xl">
-            <Shield className="text-white h-10 w-10 p-1 bg-orange-500/80 rounded-lg" />
+            <Shield size={36} className="text-white p-1 bg-orange-500/80 rounded-lg" />
             <span className="flex flex-col justify-start items-start gap-1">
               <span className="text-lg font-medium text-zinc-200">
                 Zero-knowledge architecture
               </span>
-              <span className="text-md font-normal text-zinc-300/90">
+              <span className="text-sm font-normal text-zinc-300/80">
                 Your data is encrypted and decrypted locally on your device,
                 never on our servers.
               </span>
@@ -29,7 +29,7 @@ const Detail = () => {
           </p>
         </div>
         <div className="relative flex justify-center md:justify-end items-center w-full">
-          <div className="relative bg-zinc-900/60 rounded-3xl border border-zinc-700/40 w-[300px] h-[420px] p-6 flex flex-col items-center gap-6">
+          <div className="relative bg-zinc-800/80 rounded-3xl border border-white/10 w-[300px] h-[420px] p-6 flex flex-col items-center gap-6">
             <div className="w-14 h-14 rounded-full bg-orange-500/10 flex items-center justify-center">
               <LockIcon className="text-orange-500" size={28} />
             </div>

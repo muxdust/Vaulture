@@ -4,6 +4,7 @@ import Footer from "@/components/ui/Footer";
 import Hero from "@/components/landing/Hero";
 import Features from "@/components/landing/Features";
 import Detail from "@/components/landing/Detail";
+import Faq from "@/components/landing/Faq";
 
 const LandingPage = () => {
   return (
@@ -13,6 +14,7 @@ const LandingPage = () => {
         <Hero />
         <Features />
         <Detail />
+        <Faq />
       </main>
       <Footer />
     </>

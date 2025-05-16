@@ -16,11 +16,11 @@ const Login = () => {
 
   return (
     <section className="flex justify-center items-center w-full py-20 min-h-screen">
-      <form className="flex flex-col justify-center items-center gap-5 w-full px-5 m-5 max-w-xl bg-zinc-900/50 backdrop-blur-3xl border border-zinc-700/40 rounded-xl p-5">
+      <form className="flex flex-col justify-center items-center gap-5 w-full px-5 m-5 max-w-xl bg-zinc-800/80 backdrop-blur-3xl border border-white/10 rounded-xl p-5">
         <h2 className="text-3xl font-semibold font-heading text-zinc-200 text-center">
           Login to Vaulture
         </h2>
-        <p className="text-md font-normal text-zinc-300/90 text-center">
+        <p className="text-md font-normal text-zinc-300/80 text-center">
           Login to your account to access your password vault
         </p>
         <div className="flex flex-col justify-start items-start gap-2 w-full">
@@ -29,12 +29,12 @@ const Login = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-2 rounded-xl text-md font-normal bg-zinc-900/50 backdrop-blur-3xl border border-zinc-700/40 outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-4 py-2 rounded-xl text-md font-normal bg-zinc-800/60 backdrop-blur-3xl border border-white/10 outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
         <div className="flex flex-col justify-start items-start gap-2 w-full">
           <label htmlFor="password">Password</label>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-xl text-md font-normal bg-zinc-900/50 backdrop-blur-3xl border border-zinc-700/40 w-full focus-within:ring-2 focus-within:ring-orange-500">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-xl text-md font-normal bg-zinc-800/60 backdrop-blur-3xl border border-white/10 w-full focus-within:ring-2 focus-within:ring-orange-500">
             <input
               type={showPassword ? "text" : "password"}
               value={password}
@@ -63,7 +63,7 @@ const Login = () => {
           Login
         </button>
         <p className="mt-2 text-md font-normal text-zinc-400 text-center">or</p>
-        <p className="text-md font-normal text-zinc-300/90 text-center flex flex-wrap items-center gap-2 mt-2">
+        <p className="text-md font-normal text-zinc-300/80 text-center flex flex-wrap items-center gap-2 mt-2">
           Don't have an account?{" "}
           <Link href="/register" className="text-orange-500">
             Register

@@ -15,7 +15,7 @@ const Hero = () => {
               <span> Online</span>
             </span>
           </h2>
-          <p className="text-md font-normal text-zinc-300/90 text-center md:text-left">
+          <p className="text-md font-normal text-zinc-300/80 text-center md:text-left">
             Store your passwords online for free and secure them with our
             encrypted vault
           </p>
@@ -26,13 +26,13 @@ const Hero = () => {
           <div className="flex flex-wrap justify-center items-center md:items-start gap-2">
             <p className="flex items-center gap-2">
               <Shield size={16} className="text-orange-500" />
-              <span className="text-md font-normal text-zinc-300/90">
+              <span className="text-md font-normal text-zinc-300/80">
                 256-bit encryption
               </span>
             </p>
             <p className="flex items-center gap-2">
               <User size={16} className="text-orange-500" />
-              <span className="text-md font-normal text-zinc-300/90">
+              <span className="text-md font-normal text-zinc-300/80">
                 Free for personal use
               </span>
             </p>
@@ -41,7 +41,7 @@ const Hero = () => {
 
         <div className="w-full max-w-md mx-auto relative">
           <div className="absolute top-0 left-0 w-full h-full bg-orange-500/50 rounded-full blur-[120px] z-0"></div>
-          <div className="bg-zinc-900/60 backdrop-blur-3xl border border-zinc-700/50 rounded-2xl overflow-hidden w-full relative z-10">
+          <div className="bg-zinc-800/70 backdrop-blur-3xl border border-zinc-700/50 rounded-2xl overflow-hidden w-full relative z-10">
             <div className="flex items-center gap-2 py-3 px-5">
               <span className="w-3 h-3 bg-red-500 rounded-full"></span>
               <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
@@ -58,21 +58,21 @@ const Hero = () => {
                 </button>
               </div>
               <ul className="space-y-3">
-                <li className="flex justify-between items-center bg-zinc-800/90 backdrop-blur-3xl p-3 rounded-lg">
+                <li className="flex justify-between items-center bg-zinc-800/80 p-3 rounded-lg">
                   <span className="text-zinc-200">Google</span>
-                  <span className="text-zinc-300/90">••••••••</span>
+                  <span className="text-zinc-300/80">••••••••</span>
                 </li>
-                <li className="flex justify-between items-center bg-zinc-800/90 backdrop-blur-3xl p-3 rounded-lg">
+                <li className="flex justify-between items-center bg-zinc-800/80 p-3 rounded-lg">
                   <span className="text-zinc-200">GitHub</span>
-                  <span className="text-zinc-300/90">••••••••</span>
+                  <span className="text-zinc-300/80">••••••••</span>
                 </li>
-                <li className="flex justify-between items-center bg-zinc-800/90 backdrop-blur-3xl p-3 rounded-lg">
+                <li className="flex justify-between items-center bg-zinc-800/80 p-3 rounded-lg">
                   <span className="text-zinc-200">Netflix</span>
-                  <span className="text-zinc-300/90">••••••••</span>
+                  <span className="text-zinc-300/80">••••••••</span>
                 </li>
               </ul>
               <div className="flex items-center gap-2 mt-5">
-                <p className="text-zinc-300/90">No password breach detected</p>
+                <p className="text-zinc-300/80">No password breach detected</p>
               </div>
             </div>
           </div>
