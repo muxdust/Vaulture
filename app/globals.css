@@ -5,10 +5,12 @@
   --color-foreground: var(--foreground);
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
+  --color-matte: #1f1f1f;
+  --color-mine: #fafafa;
 }
 
 :root {
-  --background: #050505;
+  --background: #121212;
   --foreground: #ededed;
 }
 
@@ -16,4 +18,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body);
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

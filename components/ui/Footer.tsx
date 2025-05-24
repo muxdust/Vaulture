@@ -4,16 +4,16 @@ import { TwitterIcon, GithubIcon, VaultIcon } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-center items-center w-full border-t border-zinc-700 border-dashed bg-zinc-800/60 backdrop-blur-3xl">
+    <footer className="flex justify-center items-center w-full border-t border-neutral-700 border-dashed bg-neutral-800/70 backdrop-blur-3xl">
       <div className="flex flex-col justify-center items-center w-full max-w-7xl px-5 py-5">
         <div className="flex flex-wrap justify-between items-center w-full gap-6">
           <Link href="/" className="flex items-center gap-1">
             <VaultIcon className="w-5 h-5" />
-            <span className="text-2xl font-semibold font-heading bg-gradient-to-r from-white to-orange-500 bg-clip-text text-transparent flex items-center gap-2">
+            <span className="text-2xl font-semibold font-heading bg-gradient-to-r from-white to-orange-600/80 bg-clip-text text-transparent flex items-center gap-2">
               Vaulture
             </span>
           </Link>
-          <div className="flex items-center gap-2 text-zinc-300/80">
+          <div className="flex items-center gap-2 text-neutral-300">
             <span>Developed by</span>
             <span>Priyanshu</span>
             <Link

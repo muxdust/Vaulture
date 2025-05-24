@@ -16,7 +16,7 @@ export const tokenData = (request: NextRequest) => {
 
     const decodedToken = jwt.verify(
       token,
-      process.env.JWT_SECRET!
+      process.env.JWT_SECRET!,
     ) as TokenData;
 
     return {

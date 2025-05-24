@@ -45,32 +45,29 @@ const Faq = () => {
   return (
     <section className="flex justify-center items-center w-full">
       <div className="flex flex-col justify-center items-center w-full px-5 max-w-7xl">
-        <h2 className="text-4xl font-semibold font-heading text-zinc-200 text-center">
+        <h2 className="text-4xl font-semibold font-heading text-mine text-center">
           Frequently Asked Questions
         </h2>
-        <p className="text-md font-normal text-zinc-300/80 mt-2 text-center">
+        <p className="text-md font-normal text-neutral-300 mt-2 text-center">
           Find answers to common questions about Vaulture
         </p>
         <div className="flex flex-col justify-start items-start gap-5 mt-16 w-full max-w-lg">
           {data.map((item) => (
-            <div
-              key={item.id}
-              className="w-full border-b border-white/10 pb-4"
-            >
+            <div key={item.id} className="w-full border-b border-white/10 pb-4">
               <div className="flex flex-row justify-between items-start w-full text-left">
-                <h3 className="text-md font-medium text-zinc-200">
+                <h3 className="text-md font-medium text-mine">
                   {item.question}
                 </h3>
                 <button onClick={() => toggleItem(item.id)}>
                   {openId === item.id ? (
-                    <ChevronUp size={24} className="text-zinc-400" />
+                    <ChevronUp size={24} className="text-neutral-400" />
                   ) : (
-                    <ChevronDown size={24} className="text-zinc-400" />
+                    <ChevronDown size={24} className="text-neutral-400" />
                   )}
                 </button>
               </div>
               {openId === item.id && (
-                <p className="text-md font-normal text-zinc-300/80 mt-2">
+                <p className="text-md font-normal text-neutral-300 mt-2">
                   {item.answer}
                 </p>
               )}

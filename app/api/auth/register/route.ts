@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     if (!name || !username || !email || !password) {
       return NextResponse.json(
         { error: "All fields are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     if (user) {
       return NextResponse.json(
         { error: "User already exists" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -32,6 +32,8 @@ export async function POST(request: NextRequest) {
       data: {
         name,
         username,
+        profileImage:
+          "https://images.unsplash.com/photo-1484589065579-248aad0d8b13",
         email,
         password: hashedPassword,
       },
@@ -39,12 +41,12 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { message: "Registered successfully" },
-      { status: 201 }
+      { status: 201 },
     );
   } catch (error) {
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

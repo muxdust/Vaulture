@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import { Roboto, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/context/QueryProvider";
-import { AppUserProvider } from "@/context/AppContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const headingFont = Roboto({
-  weight: ["400", "500"],
+  weight: ["400"],
   variable: "--font-heading",
   subsets: ["latin"],
 });
 
 const bodyFont = Noto_Sans({
-  weight: ["400", "500"],
+  weight: ["400"],
   variable: "--font-body",
   subsets: ["latin"],
 });
@@ -33,7 +34,8 @@ export default function RootLayout({
         className={`${headingFont.variable} ${bodyFont.variable} antialiased`}
       >
         <QueryProvider>
-          <AppUserProvider>{children}</AppUserProvider>
+          {children}
+          <ToastContainer theme="dark" position="top-center" autoClose={2000} />
         </QueryProvider>
       </body>
     </html>
