@@ -76,7 +76,7 @@ const Features = () => {
           {data.map((item) => (
             <div
               key={item.id}
-              className={`flex flex-col justify-start items-start w-full gap-2 p-5 rounded-xl bg-zinc-800/80 backdrop-blur-3xl border border-transparent transition-colors duration-200 ${item.borderHoverClass}`}
+              className={`flex flex-col justify-start items-start w-full gap-2 p-5 rounded-lg bg-zinc-800/80 backdrop-blur-3xl border border-transparent transition-colors duration-200 ${item.borderHoverClass}`}
             >
               <item.icon
                 size={24}

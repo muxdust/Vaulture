@@ -15,7 +15,7 @@ const Detail = () => {
             password is known only to you, which means not even our team can
             access your data.
           </p>
-          <p className="flex items-center gap-5 py-2 px-4 bg-zinc-800/80 rounded-xl">
+          <p className="flex items-center gap-5 py-2 px-4 bg-zinc-800/80 rounded-lg">
             <Shield size={36} className="text-white p-1 bg-orange-500/80 rounded-lg" />
             <span className="flex flex-col justify-start items-start gap-1">
               <span className="text-lg font-medium text-zinc-200">
@@ -37,10 +37,10 @@ const Detail = () => {
               <div className="h-3 w-3/4 bg-zinc-700/60 rounded"></div>
               <div className="h-3 w-2/3 bg-zinc-700/50 rounded"></div>
 
-              <div className="h-10 w-full bg-zinc-800/80 rounded-xl mt-2"></div>
+              <div className="h-10 w-full bg-zinc-800/80 rounded-lg mt-2"></div>
 
               <div className="h-3 w-1/2 bg-zinc-700/50 rounded mt-4"></div>
-              <div className="h-10 w-full bg-orange-950/60 rounded-xl"></div>
+              <div className="h-10 w-full bg-orange-950/60 rounded-lg"></div>
             </div>
             <div className="mt-auto w-full flex items-center justify-between pt-4">
               <div className="w-10 h-10 bg-zinc-800 rounded-full"></div>

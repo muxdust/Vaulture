@@ -23,7 +23,7 @@ const Navbar = () => {
           </Link>
           <Link
             href="/login"
-            className="hidden lg:flex px-4 py-2 rounded-xl text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200"
+            className="hidden lg:flex px-4 py-2 rounded-lg text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200"
           >
             Login
           </Link>
@@ -35,7 +35,7 @@ const Navbar = () => {
           <div className="flex flex-col justify-center items-center gap-3 w-full mt-2 pb-3">
             <Link
               href="/login"
-              className="px-5 py-2 rounded-xl text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200"
+              className="px-5 py-2 rounded-lg text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200"
             >
               Login
             </Link>

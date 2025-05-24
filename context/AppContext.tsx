@@ -41,7 +41,7 @@ export const AppUserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
-  const token = Cookies.get("token");
+  const token = Cookies.get("vaultToken");
 
   const { data, isSuccess } = useQuery({
     queryKey: ["user"],

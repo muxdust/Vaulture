@@ -19,7 +19,7 @@ const Hero = () => {
             Store your passwords online for free and secure them with our
             encrypted vault
           </p>
-          <button className="px-4 py-3 rounded-xl text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200 flex items-center gap-2 cursor-pointer">
+          <button className="px-4 py-3 rounded-lg text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200 flex items-center gap-2 cursor-pointer">
             Get Started Free
             <ArrowRight size={16} />
           </button>

@@ -16,7 +16,7 @@ const Login = () => {
 
   return (
     <section className="flex justify-center items-center w-full py-20 min-h-screen">
-      <form className="flex flex-col justify-center items-center gap-5 w-full px-5 m-5 max-w-xl bg-zinc-800/80 backdrop-blur-3xl border border-white/10 rounded-xl p-5">
+      <form className="flex flex-col justify-center items-center gap-5 w-full px-5 m-5 max-w-xl bg-zinc-800/80 backdrop-blur-3xl border border-white/10 rounded-lg p-5">
         <h2 className="text-3xl font-semibold font-heading text-zinc-200 text-center">
           Login to Vaulture
         </h2>
@@ -29,12 +29,12 @@ const Login = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-2 rounded-xl text-md font-normal bg-zinc-800/60 backdrop-blur-3xl border border-white/10 outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full px-4 py-2 rounded-lg text-md font-normal bg-zinc-800/60 backdrop-blur-3xl border border-white/10 outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
         <div className="flex flex-col justify-start items-start gap-2 w-full">
           <label htmlFor="password">Password</label>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-xl text-md font-normal bg-zinc-800/60 backdrop-blur-3xl border border-white/10 w-full focus-within:ring-2 focus-within:ring-orange-500">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-lg text-md font-normal bg-zinc-800/60 backdrop-blur-3xl border border-white/10 w-full focus-within:ring-2 focus-within:ring-orange-500">
             <input
               type={showPassword ? "text" : "password"}
               value={password}
@@ -58,7 +58,7 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="px-4 py-2 rounded-xl text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200 w-full"
+          className="px-4 py-2 rounded-lg text-md font-medium bg-orange-500/80 hover:bg-orange-500/70 transition-colors duration-200 w-full"
         >
           Login
         </button>
