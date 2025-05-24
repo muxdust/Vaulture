@@ -42,9 +42,9 @@ export async function POST(request: NextRequest) {
       data: {
         userId: user.id,
         website,
-        username,
-        email,
-        description,
+        username: username ?? "",
+        email: email ?? "",
+        description: description ?? "",
         encryptedPassword: newPassword.encryptedPassword,
         iv: newPassword.iv,
       },
