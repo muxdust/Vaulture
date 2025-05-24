@@ -7,18 +7,24 @@ interface TokenData {
   email: string;
 }
 
+interface PasswordData {
+  id: string;
+  website: string;
+  username: string;
+  email: string;
+  description: string;
+  password: string;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { email: userEmail } = tokenData(request) as TokenData;
 
     const { id, website, username, email, description, password } =
-      await request.json();
+      (await request.json()) as PasswordData;
 
-    if (!website || !password) {
-      return NextResponse.json(
-        { error: "All fields are required" },
-        { status: 400 },
-      );
+    if (typeof website !== "string" || typeof password !== "string") {
+      return NextResponse.json({ error: "Invalid data" }, { status: 400 });
     }
 
     const user = await prismaClient.user.findUnique({
@@ -38,9 +44,9 @@ export async function POST(request: NextRequest) {
     if (email) updatedData.email = email;
     if (description) updatedData.description = description;
     if (password) {
-      const encryptedPassword = encryptPassword(password);
-      updatedData.encryptedPassword = encryptedPassword.encryptedPassword;
-      updatedData.iv = encryptedPassword.iv;
+      const newPassword = encryptPassword(password);
+      updatedData.encryptedPassword = newPassword.encryptedPassword;
+      updatedData.iv = newPassword.iv;
     }
 
     await prismaClient.userPasswords.update({
@@ -52,12 +58,12 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { message: "Password updated successfully" },
-      { status: 200 },
+      { status: 200 }
     );
   } catch (error) {
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

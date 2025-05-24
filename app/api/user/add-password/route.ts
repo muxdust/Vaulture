@@ -7,18 +7,23 @@ interface TokenData {
   email: string;
 }
 
+interface PasswordData {
+  website: string;
+  username: string;
+  email: string;
+  description: string;
+  password: string;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { email: userEmail } = tokenData(request) as TokenData;
 
     const { website, username, email, description, password } =
-      await request.json();
+      (await request.json()) as PasswordData;
 
-    if (!website || !password) {
-      return NextResponse.json(
-        { error: "All fields are required" },
-        { status: 400 },
-      );
+    if (typeof website !== "string" || typeof password !== "string") {
+      return NextResponse.json({ error: "Invalid data" }, { status: 400 });
     }
 
     const user = await prismaClient.user.findUnique({
@@ -31,7 +36,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    const encryptedPassword = encryptPassword(password);
+    const newPassword = encryptPassword(password);
 
     await prismaClient.userPasswords.create({
       data: {
@@ -40,19 +45,19 @@ export async function POST(request: NextRequest) {
         username,
         email,
         description,
-        encryptedPassword: encryptedPassword.encryptedPassword,
-        iv: encryptedPassword.iv,
+        encryptedPassword: newPassword.encryptedPassword,
+        iv: newPassword.iv,
       },
     });
 
     return NextResponse.json(
       { message: "Password added successfully" },
-      { status: 201 },
+      { status: 201 }
     );
   } catch (error) {
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
