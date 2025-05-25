@@ -9,7 +9,9 @@ interface EditPasswordProps {
   onClose: () => void;
 }
 
-const EditPassword = ({ onClose, passwordData }: EditPasswordProps) => {
+const EditPassword = ({ passwordData, onClose }: EditPasswordProps) => {
+  console.log(passwordData);
+
   const [website, setWebsite] = useState(passwordData.website);
   const [username, setUsername] = useState(passwordData.username);
   const [email, setEmail] = useState(passwordData.email);
@@ -22,7 +24,7 @@ const EditPassword = ({ onClose, passwordData }: EditPasswordProps) => {
   const editPasswordMutation = useMutation({
     mutationFn: async () => {
       const res = await fetch("/api/user/update-password", {
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
@@ -134,7 +136,9 @@ const EditPassword = ({ onClose, passwordData }: EditPasswordProps) => {
               onClick={() => setDropDownOpen(!dropDownOpen)}
               className="cursor-pointer px-4 py-2 rounded-lg text-md font-normal bg-neutral-800/70 backdrop-blur-3xl border border-white/10 outline-none focus:ring-2 focus:ring-orange-600 flex justify-between items-center"
             >
-              <span>{type.charAt(0).toUpperCase() + type.slice(1)}</span>
+              <span>
+                {type ? type.charAt(0).toUpperCase() + type.slice(1) : "Type"}
+              </span>
               <ChevronDown
                 className={`ml-2 h-5 w-5 transition-transform ${
                   dropDownOpen ? "rotate-180" : ""

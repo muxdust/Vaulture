@@ -20,11 +20,15 @@ const Dashboard = () => {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="flex justify-center items-center">Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <div className="flex justify-center items-center">
+        Error: {error.message}
+      </div>
+    );
   }
 
   return (
@@ -34,8 +38,12 @@ const Dashboard = () => {
         setActiveComponent={setActiveComponent}
       />
       <section className="flex-1 w-full p-3 lg:ml-5">
-        {activeComponent === "Dashboard" && <DashComp userData={userData.user} />}
-        {activeComponent === "Passwords" && <Passwords userData={userData.user} />}
+        {activeComponent === "Dashboard" && (
+          <DashComp userData={userData.user} />
+        )}
+        {activeComponent === "Passwords" && (
+          <Passwords userData={userData.user} />
+        )}
       </section>
     </main>
   );

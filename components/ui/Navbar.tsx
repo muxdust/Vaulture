@@ -3,9 +3,21 @@
 import React, { useState } from "react";
 import { Menu, X, Vault } from "lucide-react";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const { data } = useQuery({
+    queryKey: ["user-data"],
+    queryFn: async () => {
+      const response = await fetch("/api/user/check");
+      const data = await response.json();
+      setIsAuthenticated(data.isLoggedIn);
+      return data;
+    },
+  });
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -22,10 +34,10 @@ const Navbar = () => {
             </h2>
           </Link>
           <Link
-            href="/login"
+            href={isAuthenticated ? "/dashboard" : "/login"}
             className="hidden lg:flex px-4 py-2 rounded-lg text-md font-medium bg-orange-600/80 hover:bg-orange-600/70 transition-colors duration-200"
           >
-            Login
+            {isAuthenticated ? "Dashboard" : "Login"}
           </Link>
           <button className="lg:hidden block" onClick={toggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -34,10 +46,10 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="flex flex-col justify-center items-center gap-3 w-full mt-2 pb-3">
             <Link
-              href="/login"
+              href={isAuthenticated ? "/dashboard" : "/login"}
               className="px-5 py-2 rounded-lg text-md font-medium bg-orange-600/80 hover:bg-orange-600/70 transition-colors duration-200"
             >
-              Login
+              {isAuthenticated ? "Dashboard" : "Login"}
             </Link>
           </div>
         )}

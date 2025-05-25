@@ -12,7 +12,7 @@ interface PasswordData {
   password: string;
 }
 
-export async function POST(request: NextRequest) {
+export async function PATCH(request: NextRequest) {
   try {
     const token = tokenData(request);
 
