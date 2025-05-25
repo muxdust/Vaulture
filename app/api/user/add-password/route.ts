@@ -3,10 +3,6 @@ import prismaClient from "@/prisma/prismaClient";
 import { NextResponse, NextRequest } from "next/server";
 import { encryptPassword } from "@/lib/encryptPassword";
 
-interface TokenData {
-  email: string;
-}
-
 interface PasswordData {
   website: string;
   username: string;
@@ -17,7 +13,11 @@ interface PasswordData {
 
 export async function POST(request: NextRequest) {
   try {
-    const { email: userEmail } = tokenData(request) as TokenData;
+    const token = tokenData(request);
+
+    if (!token) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
 
     const { website, username, email, description, password } =
       (await request.json()) as PasswordData;
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
 
     const user = await prismaClient.user.findUnique({
       where: {
-        email: userEmail,
+        email: token.email,
       },
     });
 
@@ -55,6 +55,7 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
+    console.error("Error adding password:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 }

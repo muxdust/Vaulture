@@ -2,19 +2,19 @@ import { tokenData } from "@/lib/tokenData";
 import prismaClient from "@/prisma/prismaClient";
 import { NextResponse, NextRequest } from "next/server";
 
-interface TokenData {
-  email: string;
-}
-
 export async function POST(request: NextRequest) {
   try {
-    const { email: userEmail } = tokenData(request) as TokenData;
+    const token = tokenData(request);
+
+    if (!token) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
 
     const { id } = await request.json();
 
     const user = await prismaClient.user.findUnique({
       where: {
-        email: userEmail,
+        email: token.email,
       },
     });
 
@@ -30,12 +30,12 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { message: "Password removed successfully" },
-      { status: 200 },
+      { status: 200 }
     );
   } catch (error) {
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

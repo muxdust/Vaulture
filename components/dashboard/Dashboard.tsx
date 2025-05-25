@@ -33,9 +33,9 @@ const Dashboard = () => {
         activeComponent={activeComponent}
         setActiveComponent={setActiveComponent}
       />
-      <section className="flex-1 w-full">
-        {activeComponent === "Dashboard" && <DashComp user={userData} />}
-        {activeComponent === "Passwords" && <Passwords user={userData} />}
+      <section className="flex-1 w-full p-3 lg:ml-5">
+        {activeComponent === "Dashboard" && <DashComp userData={userData.user} />}
+        {activeComponent === "Passwords" && <Passwords userData={userData.user} />}
       </section>
     </main>
   );

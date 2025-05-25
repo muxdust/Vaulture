@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     if (!email || !password) {
       return NextResponse.json(
         { error: "All fields are required" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -30,13 +30,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid password" }, { status: 401 });
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET!, {
+    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET!, {
       expiresIn: "7d",
     });
 
     const response = NextResponse.json(
       { message: "Logged in successfully" },
-      { status: 200 },
+      { status: 200 }
     );
 
     response.cookies.set("vaultToken", token, {
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

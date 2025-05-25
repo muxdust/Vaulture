@@ -9,7 +9,8 @@ import {
   EyeClosedIcon,
   CopyIcon,
   CopyCheckIcon,
-  DotIcon,
+  SquarePenIcon,
+  TrashIcon,
 } from "lucide-react";
 
 const PasswordCard = ({ password }: { password: any }) => {
@@ -31,27 +32,35 @@ const PasswordCard = ({ password }: { password: any }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-start items-center gap-5 p-5 rounded-lg bg-matte backdrop-blur-3xl border border-white/10">
+    <div className="flex flex-col justify-start items-start gap-5 p-5 rounded-lg bg-matte backdrop-blur-3xl border border-white/10 w-full relative">
+      <div className="absolute top-3 right-3 flex justify-end items-center gap-2">
+        <button>
+          <SquarePenIcon size={24} className="text-orange-600" />
+        </button>
+        <button>
+          <TrashIcon size={24} className="text-red-600" />
+        </button>
+      </div>
       <div className="flex flex-row justify-start items-center gap-5">
         <span
-          className={`p-1 rounded-lg bg-orange-600/10 border border-orange-600 backdrop-blur-3xl ${
+          className={`p-1 rounded-lg bg-orange-600/5 border border-orange-600 backdrop-blur-3xl ${
             password.type === "website"
-              ? "bg-green-600/10 border-green-600"
+              ? "bg-green-600/5 border-green-600"
               : password.type === "email"
-                ? "bg-blue-600/10 border-blue-600"
-                : password.type === "app"
-                  ? "bg-orange-600/10 border-orange-600"
-                  : "bg-orange-600/10 border-orange-600"
+              ? "bg-blue-600/5 border-blue-600"
+              : password.type === "app"
+              ? "bg-orange-600/5 border-orange-600"
+              : "bg-orange-600/5 border-orange-600"
           }`}
         >
           {password.type === "website" ? (
-            <GlobeIcon size={24} className="text-green-600" />
+            <GlobeIcon size={36} className="text-green-600" />
           ) : password.type === "email" ? (
-            <MailIcon size={24} className="text-blue-600" />
+            <MailIcon size={36} className="text-blue-600" />
           ) : password.type === "app" ? (
-            <SmartphoneIcon size={24} className="text-orange-600" />
+            <SmartphoneIcon size={36} className="text-orange-600" />
           ) : (
-            <SmartphoneIcon size={24} className="text-orange-600" />
+            <SmartphoneIcon size={36} className="text-orange-600" />
           )}
         </span>
         <div className="flex flex-col justify-start items-start gap-1">
@@ -70,29 +79,27 @@ const PasswordCard = ({ password }: { password: any }) => {
           )}
         </div>
       </div>
-      <div className="flex flex-row justify-start items-center gap-5 md:self-end">
-        <div className="flex flex-row justify-between items-center gap-2 px-3 py-2 rounded-lg bg-neutral-800/70 backdrop-blur-3xl">
-          <span>
-            {showPassword
-              ? password.password
-              : [...Array(password.password.length)].map((_, idx) => (
-                  <DotIcon key={idx} size={12} className="text-neutral-300" />
-                ))}
+      <div className="flex flex-row justify-start items-center gap-5 self-end w-full mt-auto">
+        <div className="flex flex-row justify-between items-center gap-2 px-3 py-2 rounded-lg bg-neutral-800 backdrop-blur-3xl w-full">
+          <span className="flex">
+            {showPassword ? password.password : "••••••••"}
           </span>
-          <button onClick={togglePasswordVisibility}>
-            {showPassword ? (
-              <EyeClosedIcon size={24} className="text-orange-600/80" />
-            ) : (
-              <EyeIcon size={24} className="text-mine" />
-            )}
-          </button>
-          <button onClick={copyPassword}>
-            {isCopied ? (
-              <CopyCheckIcon size={24} className="text-green-600/80" />
-            ) : (
-              <CopyIcon size={24} className="text-mine" />
-            )}
-          </button>
+          <div className="flex flex-row justify-end items-center gap-3">
+            <button onClick={togglePasswordVisibility}>
+              {showPassword ? (
+                <EyeClosedIcon size={24} className="text-orange-600/80" />
+              ) : (
+                <EyeIcon size={24} className="text-mine" />
+              )}
+            </button>
+            <button onClick={copyPassword}>
+              {isCopied ? (
+                <CopyCheckIcon size={24} className="text-green-600/80" />
+              ) : (
+                <CopyIcon size={24} className="text-mine" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>

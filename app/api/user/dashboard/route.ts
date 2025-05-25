@@ -3,17 +3,17 @@ import prismaClient from "@/prisma/prismaClient";
 import { NextResponse, NextRequest } from "next/server";
 import { decryptPassword } from "@/lib/decryptPassword";
 
-interface TokenData {
-  email: string;
-}
-
 export async function GET(request: NextRequest) {
   try {
-    const { email } = tokenData(request) as TokenData;
+    const token = tokenData(request);
+
+    if (!token) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
 
     const user = await prismaClient.user.findUnique({
       where: {
-        email: email,
+        email: token.email,
       },
       select: {
         id: true,
@@ -57,12 +57,13 @@ export async function GET(request: NextRequest) {
           passwords: decryptedPasswords,
         },
       },
-      { status: 200 },
+      { status: 200 }
     );
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

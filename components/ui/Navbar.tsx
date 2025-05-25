@@ -16,10 +16,10 @@ const Navbar = () => {
       <div className="flex flex-col justify-center items-center w-full px-5 py-2 max-w-7xl">
         <div className="flex justify-between items-center w-full">
           <Link href="/">
-            <h1 className="text-2xl font-semibold font-heading bg-gradient-to-r from-white to-orange-600/80 bg-clip-text text-transparent flex items-center gap-2">
+            <h2 className="text-2xl font-semibold font-heading bg-gradient-to-r from-white to-orange-600/80 bg-clip-text text-transparent flex items-center gap-2">
               <Vault size={24} className="text-white" />
               Vaulture
-            </h1>
+            </h2>
           </Link>
           <Link
             href="/login"
