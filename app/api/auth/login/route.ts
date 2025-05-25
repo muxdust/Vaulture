@@ -42,7 +42,6 @@ export async function POST(request: NextRequest) {
     response.cookies.set("vaultToken", token, {
       httpOnly: true,
       path: "/",
-      sameSite: "strict",
       maxAge: 60 * 60 * 24 * 7,
     });
 

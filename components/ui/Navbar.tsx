@@ -12,7 +12,7 @@ const Navbar = () => {
   const { data } = useQuery({
     queryKey: ["user-data"],
     queryFn: async () => {
-      const response = await fetch("/api/user/check");
+      const response = await fetch("/api/auth/check");
       const data = await response.json();
       setIsAuthenticated(data.isLoggedIn);
       return data;
