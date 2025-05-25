@@ -7,15 +7,12 @@ import { useQuery } from "@tanstack/react-query";
 
 const Dashboard = () => {
   const [activeComponent, setActiveComponent] = useState<string>("Dashboard");
-  const [userData, setUserData] = useState<any>([]);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["user-data"],
     queryFn: async () => {
       const response = await fetch("/api/user/dashboard");
-      const data = await response.json();
-      setUserData(data);
-      return data;
+      return await response.json();
     },
   });
 
@@ -31,6 +28,10 @@ const Dashboard = () => {
     );
   }
 
+  if (!data?.user) {
+    return <div className="flex justify-center items-center">No user data</div>;
+  }
+
   return (
     <main className="flex lg:flex-row flex-col justify-start items-start w-full">
       <Sidebar
@@ -38,12 +39,8 @@ const Dashboard = () => {
         setActiveComponent={setActiveComponent}
       />
       <section className="flex-1 w-full p-3 lg:ml-5">
-        {activeComponent === "Dashboard" && (
-          <DashComp userData={userData.user} />
-        )}
-        {activeComponent === "Passwords" && (
-          <Passwords userData={userData.user} />
-        )}
+        {activeComponent === "Dashboard" && <DashComp userData={data.user} />}
+        {activeComponent === "Passwords" && <Passwords userData={data.user} />}
       </section>
     </main>
   );
